@@ -19,10 +19,10 @@ const { PORT = 5000 } = process.env;
 
 const app = express();
 
-const corsSettings = {
-  origin: ['http://localhost:3000', 'https://localhost:3000', 'https://svirriill.github.io/news-explorer-frontend/'],
-  credentials: true,
-};
+// const corsSettings = {
+//   origin: ['http://localhost:3000', 'https://localhost:3000', 'https://svirriill.github.io/news-explorer-frontend/'],
+//   credentials: true,
+// };
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -46,7 +46,7 @@ app.use(helmet());
 
 app.use(requestLogger);
 
-app.use(cors(corsSettings));
+app.use(cors());
 
 app.get('/crash-test', () => {
   setTimeout(() => {
