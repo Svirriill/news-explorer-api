@@ -19,6 +19,16 @@ const { PORT = 5000 } = process.env;
 
 const app = express();
 
+// const corsSettings = {
+//   origin: ['http://localhost:3000', 'https://localhost:3000', 'https://svirriill.github.io/news-explorer-frontend/'],
+//   credentials: true,
+// };
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
+  next();
+});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -41,7 +51,7 @@ app.use(helmet());
 
 app.use(requestLogger);
 
-app.use(cors());
+// app.use(cors());
 
 app.get('/crash-test', () => {
   setTimeout(() => {
