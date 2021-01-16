@@ -19,10 +19,10 @@ const { PORT = 5000 } = process.env;
 
 const app = express();
 
-// const corsSettings = {
-//   origin: ['http://localhost:3000', 'https://localhost:3000', 'https://svirriill.github.io/news-explorer-frontend/'],
-//   credentials: true,
-// };
+const corsSettings = {
+  origin: ['http://localhost:3000', 'https://localhost:3000', 'https://svirriill.github.io/news-explorer-frontend/'],
+  credentials: true,
+};
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'include');
@@ -51,7 +51,7 @@ app.use(helmet());
 
 app.use(requestLogger);
 
-app.use(cors());
+app.use(cors(corsSettings));
 
 app.get('/crash-test', () => {
   setTimeout(() => {
