@@ -25,7 +25,7 @@ const corsSettings = {
 };
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://svdiplom.students.nomoreparties.xyz/');
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000', 'https://localhost:3000', 'https://svirriill.github.io/news-explorer-frontend/');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
