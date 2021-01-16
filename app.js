@@ -51,7 +51,7 @@ app.use(helmet());
 
 app.use(requestLogger);
 
-// app.use(cors());
+app.use(cors());
 
 app.get('/crash-test', () => {
   setTimeout(() => {
