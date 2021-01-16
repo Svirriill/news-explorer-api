@@ -57,7 +57,8 @@ module.exports.login = (req, res, next) => {
 
 module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
+    .populate('owner')
     .orFail(new NotFoundError('Нет пользователя с таким id'))
-    .then((user) => res.send(user))
+    .then((user) => res.send({ data: { email: user.email, name: user.name } }))
     .catch(next);
 };
