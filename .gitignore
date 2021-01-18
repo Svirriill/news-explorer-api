@@ -1,0 +1,8 @@
+node_modules
+logs
+*.log
+.npm
+.env
+.env.local
+.env.development.local
+build
